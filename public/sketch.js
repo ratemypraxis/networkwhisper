@@ -2,14 +2,7 @@ let synth;
 let notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5"];
 let interval;
 let networkSpeed = 0;
-
-//2 mins
 let testDuration = 2 * 60 * 1000; 
-
-// 10 secs
-// let testDuration = 10000; 
-
-
 let testInterval = 1000;
 let startTime;
 let endTime;
@@ -18,6 +11,8 @@ let speedDisplayDelay = 2000;
 let startButton;
 let listenAgainButton;
 
+let stars = [];
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textAlign(CENTER, CENTER);
@@ -25,17 +20,26 @@ function setup() {
   fill(255);
   stroke(0);
   strokeWeight(2);
-  
+
   startButton = new Button("Press Ear to Server", width / 2, height / 2, 300, 70, startTest);
+  updateStars();
+  setInterval(updateStars, 1000);
 }
 
 function draw() {
-  let blueShade = map(networkSpeed, 0, 1000, 255, 50);
+  let blueShade = map(networkSpeed, 0, 1500, 0, 255);
   background(0, 0, blueShade);
+  
+  // Draw stars
+  noStroke();
+  fill(255);
+  stars.forEach(star => {
+    ellipse(star.x, star.y, 2, 2);
+  });
 
   if (showSpeed) {
     fill(255);
-    textSize(32);
+    textSize(26);
     textAlign(CENTER, CENTER);
     text(`${networkSpeed.toFixed(2)} secrets per second`, width / 2, height / 2);
   }
@@ -109,10 +113,23 @@ function getDownloadSpeed() {
 function updateNetworkSpeed(speed) {
   networkSpeed = speed;
   if (synth) {
-    let speedRatio = map(networkSpeed, 1, 1500, 2, 8);
+    let speedRatio = map(networkSpeed, 200, 900, 0.5, 2);
     synth.play(notes[int(random(notes.length))], 0.5, 0, speedRatio);
   }
   redraw();
+  updateStars(); 
+}
+
+function updateStars() {
+  let numStars = map(networkSpeed, 0, 1500, 0, 100);
+  stars = [];
+  for (let i = 0; i < numStars; i++) {
+    let star = {
+      x: random(width),
+      y: random(height)
+    };
+    stars.push(star);
+  }
 }
 
 function playNote() {
