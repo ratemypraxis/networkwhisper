@@ -24,9 +24,9 @@
 - broadband
 
 ## Who is to thank?
-- [School for Poetic Computation](sfpc.study)
-  - Tommy Martinez
-  - Maxine De Las Pozas
+- [School for Poetic Computation](https://sfpc.study/)
+  - [Tommy Martinez](https://thomasjohnmartinez.com/)
+  - [Maxine De Las Pozas](https://gnarl.online/)
 - Wikipedia
   - Contributers to [Sombrero Galaxy](https://en.wikipedia.org/wiki/Sombrero_Galaxy) article
 - geeksforgeeks.com
