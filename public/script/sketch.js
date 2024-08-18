@@ -1,5 +1,5 @@
 let synth;
-let notes = ["C3", "D3", "E3", "F3", "G3", "A3", "B3", "C4", "D4", "E4", "F4", "G4"];
+let notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5"];
 let interval;
 let networkSpeed = 0;
 let testDuration = 60 * 1000; 
@@ -128,7 +128,7 @@ function getDownloadSpeed() {
 function updateNetworkSpeed(speed) {
   networkSpeed = speed;
   if (synth) {
-    let speedRatio = map(networkSpeed, 0, 100, 0.5, 2);
+    let speedRatio = map(networkSpeed, 0, 100, 1, 2);
     synth.play(notes[int(random(notes.length))], 0.5, 0, speedRatio);
   }
   redraw();
@@ -167,7 +167,7 @@ function playNote() {
 }
 
 function between() {
-  let space = random(300, 1000) / map(networkSpeed, 0, 100, 0.5, 2);
+  let space = random(300, 1000) / map(networkSpeed, 0, 100, 1, 2);
   interval = setTimeout(playNote, space);
 }
 
