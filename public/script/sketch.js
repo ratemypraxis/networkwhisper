@@ -118,14 +118,14 @@ function getDownloadSpeed() {
     return;
   }
 
-  const imageSizeKB = 41800; 
+  const imageSizeKB = 5300; 
   const imageSizeBytes = imageSizeKB * 1024; 
   const imageSizeBits = imageSizeBytes * 8; 
 
   const downloadStartTime = Date.now();
 
   const cacheBuster = new Date().getTime();
-  const url = `https://listen.2nd.systems/pic/print.gif?${cacheBuster}`; 
+  const url = `../pic/oldBike.jpg?${cacheBuster}`; 
 
   fetch(url)
     .then(response => {
