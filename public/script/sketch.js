@@ -27,10 +27,9 @@ function setup() {
 }
 
 function draw() {
-  let blueShade = map(networkSpeed, 0, 1500, 0, 255);
+  let blueShade = map(networkSpeed, 0, 100, 0, 255);
   background(0, 0, blueShade);
   
-  // Draw stars
   noStroke();
   fill(255);
   stars.forEach(star => {
@@ -129,7 +128,7 @@ function getDownloadSpeed() {
 function updateNetworkSpeed(speed) {
   networkSpeed = speed;
   if (synth) {
-    let speedRatio = map(networkSpeed, 200, 900, 0.5, 2);
+    let speedRatio = map(networkSpeed, 0, 100, 0.5, 2);
     synth.play(notes[int(random(notes.length))], 0.5, 0, speedRatio);
   }
   redraw();
@@ -137,7 +136,7 @@ function updateNetworkSpeed(speed) {
 }
 
 function updateStars() {
-  let numStars = map(networkSpeed, 0, 1500, 0, 100);
+  let numStars = map(networkSpeed, 0, 100, 0, 100);
   stars = [];
   for (let i = 0; i < numStars; i++) {
     let star = {
@@ -168,7 +167,7 @@ function playNote() {
 }
 
 function between() {
-  let space = random(300, 1000) / map(networkSpeed, 0.1, 100, 0.5, 2);
+  let space = random(300, 1000) / map(networkSpeed, 0, 100, 0.5, 2);
   interval = setTimeout(playNote, space);
 }
 
