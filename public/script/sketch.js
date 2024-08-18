@@ -86,31 +86,6 @@ function startTest() {
   startButton.hide();
 }
 
-// function getDownloadSpeed() {
-//   if (Date.now() > endTime) {
-//     stopTest();
-//     return;
-//   }
-
-//   const imageSizeMB = 0.6225;
-//   const downloadStartTime = Date.now();
-//   fetch('../pic/bless_this_mess.png')
-//     .then(response => {
-//       if (!response.ok) throw new Error('Cant download pic');
-//       return response.blob();
-//     })
-//     .then(() => {
-//       const downloadEndTime = Date.now();
-//       const downloadTime = (downloadEndTime - downloadStartTime) / 1000;
-//       const downloadSpeed = (imageSizeMB / downloadTime) * 8;
-//       updateNetworkSpeed(downloadSpeed);
-//     })
-//     .catch(error => console.error('Download speed not working', error));
-
-//   setTimeout(getDownloadSpeed, testInterval);
-// }
-
-
 //code in the following function built off the example at this link: https://www.geeksforgeeks.org/how-to-detect-network-speed-using-javascript/
 function getDownloadSpeed() {
   if (Date.now() > endTime) {
@@ -118,14 +93,16 @@ function getDownloadSpeed() {
     return;
   }
 
-  const imageSizeKB = 5300; 
+  const imageSizeKB = 35900; 
   const imageSizeBytes = imageSizeKB * 1024; 
   const imageSizeBits = imageSizeBytes * 8; 
 
   const downloadStartTime = Date.now();
 
   const cacheBuster = new Date().getTime();
-  const url = `../pic/oldBike.jpg?${cacheBuster}`; 
+
+  //image creds: https://en.wikipedia.org/wiki/Sombrero_Galaxy
+  const url = `../pic/sombrero.jpg?${cacheBuster}`; 
 
   fetch(url)
     .then(response => {
