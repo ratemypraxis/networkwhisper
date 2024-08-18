@@ -125,7 +125,7 @@ function getDownloadSpeed() {
   const downloadStartTime = Date.now();
 
   const cacheBuster = new Date().getTime();
-  const url = `../pic/print.gif?${cacheBuster}`; 
+  const url = `https://listen.2nd.systems/pic/print.gif?${cacheBuster}`; 
 
   fetch(url)
     .then(response => {
