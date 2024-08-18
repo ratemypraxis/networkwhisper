@@ -1,7 +1,7 @@
 # WiFi Whispers
-* A sonified internet connection speed test.
+*A sonified internet connection speed test.*
 
-A running instance of this project can be found at the following URL: [https://listen.2nd.systems/](https://listen.2nd.systems/)
+**A running instance of this project can be found at the following URL: [https://listen.2nd.systems/](https://listen.2nd.systems/)**
 
 ![a screenshot of a webpage that reads "number" secrects per second" on a dark blue background with small white dots scattered about](https://raw.githubusercontent.com/ratemypraxis/ratemypraxis.github.io/main/images/wifiWhispers.png).
 
