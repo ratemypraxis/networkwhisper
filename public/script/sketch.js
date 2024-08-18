@@ -99,9 +99,10 @@ function getDownloadSpeed() {
 
   const downloadStartTime = Date.now();
 
+  const cacheBuster = new Date().getTime();
 
   //image creds: https://en.wikipedia.org/wiki/Sombrero_Galaxy
-  const url = `../pic/somber.jpg`; 
+  const url = `../pic/somber.jpg?${cacheBuster}`; 
 
   fetch(url)
     .then(response => {
@@ -122,6 +123,7 @@ function getDownloadSpeed() {
 
   setTimeout(getDownloadSpeed, testInterval);
 }
+
 
 
 function updateNetworkSpeed(speed) {
