@@ -8,11 +8,9 @@
 ## What is going on?
 - An image is hosted on a secure server in NYC.
   - [This image of the Sombrero galaxy](https://en.wikipedia.org/wiki/File:M104_ngc4594_sombrero_galaxy_hi-res.jpg) to be exact.
-  - The server is running via node.js with Express on a virtual machine hosted by Digital Ocean. 
 - Your browser downloads this image every second, with the speed of that download being measured to estimate network strength.
   - Distance from NYC (the server location) has an affect on speed here.
-- A generative melody plays on...
-  - the measured speed of your connection or networked "secrets" manipulated the melody in realtime.
+- The playback of a generative melody is manipulated by the real-time changes in connection stength.
 
 ## What's it made of?
 - p5.js
