@@ -93,7 +93,7 @@ function getDownloadSpeed() {
     return;
   }
 
-  const imageSizeKB = 35900; 
+  const imageSizeKB = 1800; 
   const imageSizeBytes = imageSizeKB * 1024; 
   const imageSizeBits = imageSizeBytes * 8; 
 
@@ -102,7 +102,7 @@ function getDownloadSpeed() {
   const cacheBuster = new Date().getTime();
 
   //image creds: https://en.wikipedia.org/wiki/Sombrero_Galaxy
-  const url = `../pic/sombrero.jpg?${cacheBuster}`; 
+  const url = `../pic/somber.jpg?${cacheBuster}`; 
 
   fetch(url)
     .then(response => {
