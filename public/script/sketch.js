@@ -2,7 +2,7 @@ let synth;
 let notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5"];
 let interval;
 let networkSpeed = 0;
-let testDuration = 2 * 60 * 1000; 
+let testDuration = 1 * 30 * 1000; 
 let testInterval = 1000;
 let startTime;
 let endTime;
@@ -86,29 +86,68 @@ function startTest() {
   startButton.hide();
 }
 
+// function getDownloadSpeed() {
+//   if (Date.now() > endTime) {
+//     stopTest();
+//     return;
+//   }
+
+//   const imageSizeMB = 0.6225;
+//   const downloadStartTime = Date.now();
+//   fetch('../pic/bless_this_mess.png')
+//     .then(response => {
+//       if (!response.ok) throw new Error('Cant download pic');
+//       return response.blob();
+//     })
+//     .then(() => {
+//       const downloadEndTime = Date.now();
+//       const downloadTime = (downloadEndTime - downloadStartTime) / 1000;
+//       const downloadSpeed = (imageSizeMB / downloadTime) * 8;
+//       updateNetworkSpeed(downloadSpeed);
+//     })
+//     .catch(error => console.error('Download speed not working', error));
+
+//   setTimeout(getDownloadSpeed, testInterval);
+// }
+
+
+//code in the following function built off the example at this link: https://www.geeksforgeeks.org/how-to-detect-network-speed-using-javascript/
 function getDownloadSpeed() {
   if (Date.now() > endTime) {
     stopTest();
     return;
   }
 
-  const imageSizeMB = 5.3;
+  const imageSizeKB = 41800; 
+  const imageSizeBytes = imageSizeKB * 1024; 
+  const imageSizeBits = imageSizeBytes * 8; 
+
   const downloadStartTime = Date.now();
-  fetch('/oldBike.jpg')
+
+  const cacheBuster = new Date().getTime();
+  const url = `../pic/print.gif?${cacheBuster}`; 
+
+  fetch(url)
     .then(response => {
-      if (!response.ok) throw new Error('Cant download pic');
-      return response.blob();
+      if (!response.ok) throw new Error('Cannot download image');
+      return response.blob(); 
     })
     .then(() => {
       const downloadEndTime = Date.now();
-      const downloadTime = (downloadEndTime - downloadStartTime) / 1000;
-      const downloadSpeed = (imageSizeMB / downloadTime) * 8;
-      updateNetworkSpeed(downloadSpeed);
+      const downloadTime = (downloadEndTime - downloadStartTime) / 1000; 
+
+      const downloadSpeedBps = imageSizeBits / downloadTime; 
+      const downloadSpeedKbps = downloadSpeedBps / 1024; 
+      const downloadSpeedMbps = downloadSpeedKbps / 1024; 
+
+      updateNetworkSpeed(downloadSpeedMbps);
     })
-    .catch(error => console.error('Download speed not working', error));
+    .catch(error => console.error('Download speed test failed:', error));
 
   setTimeout(getDownloadSpeed, testInterval);
 }
+
+
 
 function updateNetworkSpeed(speed) {
   networkSpeed = speed;
