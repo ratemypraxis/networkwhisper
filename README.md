@@ -10,14 +10,14 @@
 - Your browser downloads this image every second, with the speed of that download being measured to estimate network strength. (*distance from NYC (the server location) has an affect on speed here*)
 - The playback of a generative melody is manipulated by the real-time changes in connection stength.
 
-## What's it made of?
+## What's it made of and what's it on?
 - p5.js
   - p5.sound
 - node.js
-  - express
-- certbot
-- digital ocean
-- broadband
+  - Express
+- CertBot
+- Digital Ocean
+- Your connection
 
 ## Who is to thank?
 - [School for Poetic Computation](https://sfpc.study/)
