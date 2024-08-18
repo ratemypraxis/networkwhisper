@@ -19,8 +19,6 @@
   - p5.sound
 - node.js
   - express
-- html
-- css
 - certbot
 - digital ocean
 - broadband
