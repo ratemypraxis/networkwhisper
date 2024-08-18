@@ -7,9 +7,7 @@
 
 ## What is going on?
 - An image is hosted on a secure server in NYC.
-  - [This image of the Sombrero galaxy](https://en.wikipedia.org/wiki/File:M104_ngc4594_sombrero_galaxy_hi-res.jpg) to be exact.
-- Your browser downloads this image every second, with the speed of that download being measured to estimate network strength.
-  - Distance from NYC (the server location) has an affect on speed here.
+- Your browser downloads this image every second, with the speed of that download being measured to estimate network strength. (*distance from NYC (the server location) has an affect on speed here*)
 - The playback of a generative melody is manipulated by the real-time changes in connection stength.
 
 ## What's it made of?
