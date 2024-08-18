@@ -1,8 +1,8 @@
 let synth;
-let notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5"];
+let notes = ["C3", "D3", "E3", "F3", "G3", "A3", "B3", "C4", "D4", "E4", "F4", "G4"];
 let interval;
 let networkSpeed = 0;
-let testDuration = 1 * 30 * 1000; 
+let testDuration = 60 * 1000; 
 let testInterval = 1000;
 let startTime;
 let endTime;
@@ -136,7 +136,7 @@ function updateNetworkSpeed(speed) {
 }
 
 function updateStars() {
-  let numStars = map(networkSpeed, 0, 100, 0, 100);
+  let numStars = map(networkSpeed, 0, 100, 0, 500);
   stars = [];
   for (let i = 0; i < numStars; i++) {
     let star = {
